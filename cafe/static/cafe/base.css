@@ -1,0 +1,145 @@
+/*
+	default.css
+	04/10/2017
+
+	McFatter 2017 Programming Team
+*/
+
+
+@font-face{
+    font-family: "Lato";
+    src: url('fonts/Lato.ttf') format('truetype');
+}
+
+@font-face{
+    font-family: "JosefinSans";
+    src: url('fonts/JosefinSans.ttf') format('truetype');
+}
+
+@font-face{
+    font-family: "Lobster";
+    src: url('fonts/Lobster.otf') format('opentype');
+}
+
+@font-face{
+    font-family: "Quicksand";
+    src: url('fonts/Quicksand.otf') format('opentype');
+}
+
+body{
+	background-image: url("images/backgroundwithlogo.jpg");
+	font-size: 14px;
+	text-align: left;
+	font-family: 'JosefinSans', sans-serif;
+
+}
+
+a{
+	text-decoration: none;
+}
+
+.body{
+	margin: 0 auto;
+	width: 70%;
+
+}
+
+.main img{
+	width: 20%;
+	height: auto;
+	margin-top: 2%;
+	margin-bottom: 2%;
+}
+
+.main h1{
+	display: inline;
+	float: right;
+	font-size: 60px;
+	margin-top: 6%;
+	margin-right: 25%;
+	color: rgba(20,142,145,100);
+  	text-shadow:
+    -1px -1px 0 rgba(191,191,191,1.0),  
+    1px -1px 0 rgba(191,191,191,1.0),
+    -1px 1px 0 rgba(191,191,191,1.0),
+    1px 1px 0 rgba(191,191,191,1.0);
+
+
+
+}
+
+.main nav{
+	background-color: rgba(20,142,145,100);
+	height: 40px;
+	border-radius: 5px;
+	-moz-border-radius: 5px;
+	-webkit-border-radius: 5px;
+	font-family: 'Lato', sans-serif;
+    box-shadow: 0 1px 10px #166f72;
+}
+
+.main nav ul{
+	list-style: none;
+	margin: 0 auto;
+}
+
+.main nav ul li{
+	float: left;
+	display: inline;
+}
+
+.main nav a:link, .main nav a:visited{
+	color: white;
+	display: inline-block;
+	padding: 10px 25px;
+	height: 20px;
+}
+
+.main nav a:hover, .main nav a:active{
+	background-color: white;
+	color: black;
+	text-shadow: none;
+}
+
+.main nav ul li a{
+	transition: all 0.4s ease 0s;
+	border-radius: 5px;
+	-moz-border-radius: 5px;
+	-webkit-border-radius: 5px;
+}
+
+#main{
+	line-height: 25px;
+	border-radius: 5px;
+	-moz-border-radius: 5px;
+	-webkit-border-radius: 5px;
+}
+
+#content{
+	width: 70%;
+	float: left;
+}
+
+
+.mainfooter{
+	width: 100%;
+	float: left;
+	border-radius: 5px;
+	-moz-border-radius: 5px;
+	-webkit-border-radius: 5px;
+	background-color: rgba(20,142,145,100);
+	margin-top: 2%;
+	margin-bottom: 2%;
+    box-shadow: 0 1px 10px #166f72;
+}
+
+.mainfooter p{
+	width: 92%;
+	margin: 2% auto;
+	color: white;
+	text-align: center;
+}
+
+#login{
+	padding-left: 25%;
+}

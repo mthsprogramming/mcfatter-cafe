@@ -1,0 +1,26 @@
+{% extends 'cafe/base.html' %}
+
+{% load static %}
+{% block extra_styles %}
+<link href="{% static 'cafe/login.css' %}" rel="stylesheet" type="text/css">
+{% endblock %}
+{% block page_body %}
+
+<div id="main">
+
+		<h2> Login </h2>
+
+        <form method="post">
+
+        	<div class="center">
+				{% csrf_token %}
+				{{ form.as_p }}
+
+				<button type="submit" class="submit">Login</button>
+			</div>
+
+            <p class="center"> <a href="">Forgot username or password?</a> </p>
+        </form>
+</div>
+
+{% endblock %}

@@ -1,0 +1,6 @@
+Django==2.1.3
+python-decouple==3.1
+Pillow==5.3.0
+psycopg2==2.7.6.1
+bcrypt==3.1.4
+django-tinymce==2.7.0

@@ -1,0 +1,61 @@
+{% extends 'cafe/base.html' %}
+
+{% load static %}
+{% block extra_styles %}
+<link rel="stylesheet" type="text/css" href="{% static 'cafe/order.css' %}">
+<script src="{% static 'cafe/scripts/cart.js' %}"></script>
+<script src="{% static 'cafe/scripts/alerts.js' %}"></script>
+{% endblock %}
+
+{% block bodytags %}
+onload="setupTable()"
+{% endblock %}
+
+{% block page_body %}
+<div id="order">
+
+	<h2> My Order </h2>
+	{% if user.is_authenticated %}
+
+	<p style="text-align: center;">Add more items from the <a style="color: rgba(20,142,145,1);" href="{% url 'cafe:menu' %}">Menu</a> page.</p>
+	<p style="text-align: center">Change quantity and specify instructions below (make sure to click update cart).</p>
+	<p style="text-align: center">If specifying instructions for multiples of the same item, place each set of instructions on a new line.</p>
+
+	<div id="cart">
+	<form action="{% url 'cafe:checkout' %}" method="post" onsubmit="orderSubmission()">
+		{% csrf_token %}
+
+	<table id="orderTable">
+			<tr>
+				<th>Quantity</th>
+				<th>Price</th>
+				<th class="space">Item</th>
+				<th>Instructions</th>
+				<th><!-- Remove button space --></th>
+			</tr>
+		</table>
+
+		<button type="button" class="button3" onclick="updateCartFromTable()">Update cart</button>
+		<button type="button" class="button2" onclick="clearCart()">Clear cart</button>
+		<!-- For Testing only
+		<button class="button" onclick="cartAlert()">See cart array</button>
+		-->
+		<div class="center">
+			<label>Who is this order for?</label>
+			<input name="orderFor" type="text" value="{{ user.first_name }} {{ user.last_name }}" required>
+			<br />
+			<label>Pickup time</label>
+			<input name="pickupTime" type="time" min="12:15:00" max="13:15:00" required> <!-- enforce this with javascript -->
+		</div>
+
+		<input type="hidden" name="cart" id="hiddenCart">
+
+		<button type="submit" class="button" id="placeOrder">Place order</button> <!-- do not allow placing if cart is empty -->
+	</form>
+	</div>
+	{% else %}
+	You cannot place an order because you are not <a href="{% url 'cafe:login' %}">logged in</a>.
+	{% endif %}
+</div>
+
+{% endblock %}

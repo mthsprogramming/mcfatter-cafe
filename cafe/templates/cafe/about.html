@@ -1,0 +1,30 @@
+{% extends 'cafe/base.html' %}
+
+{% load static %}
+{% block extra_styles %}
+<link rel="stylesheet" type="text/css" href="{% static 'cafe/about.css' %}">
+{% endblock %}
+
+{% block page_body %}
+<div id="main">
+		<div id="content">
+            {% for post in about_post_list %}
+			<article class="post">
+				<header>
+					<h2> {{ post.post_title }} </h2>
+				</header>
+
+				<footer>
+					<p class="info"> From the McFatter Café Team: </p>
+				</footer>
+
+				<content>
+					<p> {{ post.post_text|safe }} </p>
+
+				</content>
+			</article>
+            {% endfor %}
+
+	</div>
+</div>
+{% endblock %}

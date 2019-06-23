@@ -1,0 +1,113 @@
+{% extends 'cafe/base.html' %}
+
+{% load static %}
+{% block extra_styles %}
+<link rel="stylesheet" type="text/css" href="{% static 'cafe/menu.css' %}">
+<script src="{% static 'cafe/scripts/cart.js' %}"></script>
+{% endblock %}
+
+{% block page_body %}
+<div id="main">
+		<div id="content">
+			<article class="content">
+				<header>
+					<h2> Lunch Menu </h2>
+				</header>
+
+				<footer>
+					<p class="info"> All nutritional information available upon clicking food images. </p>
+
+					<p class="info"> <strong>Any special instructions for your order, such as toppings, cook temp, etc. can be included on the <a href="{% url 'cafe:order' %}">My Order</a> page.</strong> </p>
+
+					<p class="info"> Jump to <a href="#entrees">entrees</a> or <a href="#sides">sides</a>.</p>
+				</footer>
+
+				{% with cafe_menu_object|first as cafe %}
+				{% if cafe.has_special_today %}
+				<h3 id="specials"> Daily Specials </h3> <!-- hide this if nothing has been posted -->
+				{% endif %}
+				{% endwith %}
+
+				{% for menu_item in menu_item_list %}
+				{% if menu_item.is_special_today %}
+				<div>
+				<img src="{% if menu_item.image %}{{ menu_item.image.url|default_if_none:'#' }}{% endif %}" class="food" alt="{{ menu_item.name }} image">
+
+					<div class="hoverinfo"> <span>i</span>
+					    	<p> 3
+						    	<br /> lines
+						    	<br /> of text
+					    	</p>
+				 	 </div>
+				</div>
+
+				<div class="specials">
+					<p> <strong>{{ menu_item.name }}</strong> <i>...  {{ menu_item.calories }} kcal </i> </p>
+					<p> {{ menu_item.description }} ... ${{ menu_item.price }}</p>
+					{% if user.is_authenticated %}
+					<input type="number" id="{{ menu_item.name }}Qty" min="1" max="5" placeholder="1" value="1">
+					<button onclick="addToCart('{{ menu_item.name }}', document.getElementById('{{ menu_item.name }}Qty').value, {{ menu_item.price }})">Add to Order</button>
+					{% endif %}
+				</div>
+
+
+				{% endif %}
+                {% endfor %}
+
+
+				<h3 id="entrees"> Entrées </h3>
+
+                {% for menu_item in menu_item_list %}
+				{% if menu_item.is_entree %}
+				<div>
+				<img src="{% if menu_item.image %}{{ menu_item.image.url|default_if_none:'#' }}{% endif %}" class="food" alt="{{ menu_item.name }} image">
+				
+					<div class="hoverinfo"> <span>i</span>
+					    	<p> 3
+						    	<br /> lines
+						    	<br /> of text
+					    	</p>
+				 	 </div>
+				</div>
+
+				<div class="entree">
+					<p> <strong>{{ menu_item.name }}</strong> <i>...  {{ menu_item.calories }} kcal </i> </p>
+					<p> {{ menu_item.description }} ... ${{ menu_item.price }}</p>
+					{% if user.is_authenticated %}
+					<input type="number" id="{{ menu_item.name }}Qty" min="1" max="5" placeholder="1" value="1">
+					<button onclick="addToCart('{{ menu_item.name }}', document.getElementById('{{ menu_item.name }}Qty').value, {{ menu_item.price }})">Add to Order</button>
+					{% endif %}
+				</div>
+
+
+				{% endif %}
+                {% endfor %}
+
+				<p class="info"><a href="#">Back to top</a></p>
+
+				<h3 id="sides"> Sides </h3>
+
+				{% for menu_item in menu_item_list %}
+				{% if menu_item.is_side %}
+				<img src="{% if menu_item.image %}{{ menu_item.image.url|default_if_none:'#' }}{% endif %}" class="food" alt="{{ menu_item.name }} image">
+
+				<div class="side">
+					<p> <strong>{{ menu_item.name }}</strong> <i>...  {{ menu_item.calories }} kcal </i> </p>
+					<p> {{ menu_item.description }} ... ${{ menu_item.price }}</p>
+					{% if user.is_authenticated %}
+					<input type="number" id="{{ menu_item.name }}Qty" min="1" max="5" placeholder="1" value="1">
+					<button onclick="addToCart('{{ menu_item.name }}', document.getElementById('{{ menu_item.name }}Qty').value, {{ menu_item.price }})">Add to Order</button>
+					{% endif %}
+				</div>
+
+
+				{% endif %}
+				{% endfor %}
+
+
+				<p class="info"><a href="#">Back to top</a></p>
+
+			</article>
+		</div>
+	</div>
+{% endblock %}

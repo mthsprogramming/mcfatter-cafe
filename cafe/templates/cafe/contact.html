@@ -1,0 +1,39 @@
+{% extends 'cafe/base.html' %}
+
+{% load static %}
+{% block extra_styles %}
+<link rel="stylesheet" type="text/css" href="{% static 'cafe/contact.css' %}">
+<script src="{% static 'cafe/scripts/alerts.js' %}"></script>
+{% endblock %}
+
+{% block page_body %}
+<div id="area">
+
+	<div id="contact">
+
+		<h1>Contact Us</h1>
+		<h2> If you have any issues and need assistance, please fill out the form. </h2>
+
+		<form method="post" onsubmit="ticketSubmission()">
+			{% csrf_token %}
+			{% if form.errors %}
+			{% for error in form.errors %}
+			Please check your {{ error }}.
+			{% endfor %}
+			{% endif %}
+
+			<ul>{% for field in form %}
+			<li>{{ field }}</li>
+				{% endfor %}
+			</ul>
+
+			<button type="submit" class="submit">Open ticket</button>
+
+		</form>
+		
+		<h3> You should expect a response within 2-3 business days. </h3>
+
+	</div>
+
+</div>
+{% endblock %}

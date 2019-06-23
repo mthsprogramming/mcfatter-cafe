@@ -1,0 +1,63 @@
+{% extends 'cafe/base.html' %}
+
+{% load static %}
+{% block extra_styles %}
+<link rel="stylesheet" type="text/css" href="{% static 'cafe/index.css' %}">
+{% endblock %}
+
+{% block page_body %}
+<div id="main">
+		<div id="content">
+
+			{% for post in home_list %}
+			<article class="newspost">
+				<header>
+					<h2> {{ post.post_title }} </h2>
+				</header>
+
+				<footer>
+					<p class="info"> {{ post.pub_date }} </p>
+				</footer>
+
+				<content>
+					<p> {{ post.post_text|safe }} </p>
+
+				</content>
+			</article>
+			{% endfor %}
+		</div>
+	</div>
+
+	<div class="topbar">
+		<article>
+			<h2> Special </h2>
+
+			<p> Today's special is: </p>
+
+			<p class="special"> {% with cafe_menu_object|first as cafe %}{% if cafe.has_special_today %}{{ cafe.get_special.special }}{% else %}No special posted.{% endif %}{% endwith %} </p>
+
+		</article>
+	</div>
+
+	<div class="midbar">
+		<article>
+			<h2> Soup of the Day </h2>
+
+			<p> Today's soup is: </p>
+
+			<p class="special"> {% with cafe_menu_object|first as cafe %}{% if cafe.has_special_today %}{{ cafe.get_special.soup }}{% else %}No soup posted.{% endif %}{% endwith %} </p>
+		</article>
+	</div>
+
+	<div class="botbar">
+		<article>
+			<h2> Social Media </h2>
+
+			<a href="https://twitter.com/McFatter_Tech" target="_new"><img src="{% static 'cafe/images/twitterlogo.png' %}" alt="twitterlogo" id="smlogo"></a>
+
+			<a href="https://www.facebook.com/McFatterTechnicalHighSchool" target="_new"><img src="{% static 'cafe/images/facebook.png' %}" alt="fblogo" id="smlogo"></a>
+
+			<a href="https://www.instagram.com/mcfattertech" target="_new"><img src="{% static 'cafe/images/iglogo.png' %}" alt="iglogo" id="iglogo"></a>
+		</article>
+	</div>
+{% endblock %}

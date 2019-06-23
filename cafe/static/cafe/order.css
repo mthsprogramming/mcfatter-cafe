@@ -1,0 +1,93 @@
+/*
+	order.css
+	04/25/2017
+
+	McFatter 2017 Programming Team
+*/
+
+h2{
+	text-align: center;
+	font-size: 30px;
+	padding-bottom: 15px;
+}
+
+th{
+	text-align: center;
+	width: 75px;
+}
+
+#order{
+	background-color: white;
+	height: 70%;
+	padding: 3% 5%;
+	margin-top: 3%;
+	line-height: 25px;
+	border-radius: 5px;
+	-moz-border-radius: 5px;
+	-webkit-border-radius: 5px;
+}
+
+#cart{
+	width: 550px;
+	height: auto;
+	display: block;
+	margin-left: auto;
+	margin-right: auto;
+	border: groove;
+	padding: 20px 30px;
+	padding-bottom: 75px;
+	border-color: rgba(20,142,145,100);
+	margin-top: 20px;
+}
+
+.space{
+	padding-right: 150px;
+}
+
+.button{
+    margin-top: 30px;
+    background-color: white;
+    border-style: solid;
+    padding: 8px 20px;
+    text-align: center;
+    text-decoration: none;
+    font-size: 12px;
+    margin-left: auto;
+    margin-right: auto;
+    display: block;
+}
+
+.button2{
+    margin-top: 30px;
+    background-color: white;
+    border-style: solid;
+    padding: 8px 20px;
+    text-align: center;
+    text-decoration: none;
+    font-size: 12px;
+    float: left;
+    margin-left: 10px;
+}
+
+.button3{
+    margin-top: 30px;
+    background-color: white;
+    border-style: solid;
+    padding: 8px 20px;
+    text-align: center;
+    text-decoration: none;
+    font-size: 12px;
+    float: left;
+    margin-left: 165px;
+}
+
+.left{
+	padding-left: 125px;
+	margin-right: 25px;
+}
+
+.center{
+	margin-top: 45px;
+	text-align: center;
+	padding-top: 70px;
+}

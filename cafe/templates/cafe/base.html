@@ -1,0 +1,68 @@
+<html>
+
+<head>
+{% block head %}
+<title>McFatter Cafe</title>
+{% endblock %}
+
+    {% load static %}
+	{% load cafe_extras %}
+    <meta charset="UTF-8">
+	<link rel="stylesheet" type="text/css" href="{% static 'cafe/base.css' %}">
+
+{% block extra_styles %}
+
+{% endblock %}
+</head>
+
+<body class="body" {% block bodytags %}{% endblock %}>
+
+{% block header %}
+<div id="top">
+
+	<header class="main">
+		<img src="{% static 'cafe/images/mtclogo.png' %}" alt="logo">
+
+		<h1>McFatter Café</h1>
+
+		<nav>
+			<ul>
+				<li> <a href="{% url 'cafe:index' %}"> Home </a> </li>
+				<li> <a href="{% url 'cafe:about' %}"> About </a> </li>
+				<li> <a href="{% url 'cafe:menu' %}"> Menu </a> </li>
+				<li > <a href="{% url 'cafe:contact' %}"> Contact </a> </li>
+
+
+
+				{% if user.is_authenticated %}
+
+				<li style="float:right" id="navlogin"> <a href="{% url 'cafe:logout' %}"> Logout </a> </li>
+
+				{% if user|has_group:"Developer" or user|has_group:"Cafe staff" %}
+				<li style="float:right"> <a href="{% url 'admin:index' %}"> Admin </a> </li>
+                {% endif %}
+				<li style="float:right"> <a href="{% url 'cafe:profile' %}"> My Profile </a> </li>
+				<li style="float:right"> <a href="{% url 'cafe:order' %}"> My Order </a> </li>
+				{% else %}
+
+				<li style="float:right" id="navlogin"> <a href="{% url 'cafe:register' %}"> Register </a> </li>
+				<li style="float:right" id="navlogin"> <a href="{% url 'cafe:login' %}"> Login </a> </li>
+				{% endif %}
+
+			</ul>
+		</nav>
+	</header>
+
+</div>
+{% endblock %}
+
+
+
+{% block page_body %}
+
+{% endblock %}
+</body>
+<footer class="mainfooter">
+	<p> Copyright &copy; &mdash; McFatter Programming Class of 2017 </p>
+</footer>
+</html>

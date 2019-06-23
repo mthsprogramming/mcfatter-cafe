@@ -1,0 +1,46 @@
+{% extends 'cafe/base.html' %}
+
+{% load static %}
+{% block extra_styles %}
+<link href="{% static 'cafe/profile.css' %}" rel="stylesheet" type="text/css">
+{% endblock %}
+{% block page_body %}
+
+<div id="content">
+	<div id="main">
+		<h2> My Profile </h2>
+		{% if user.is_authenticated %}
+		
+
+		<h6> Welcome, {{ user.first_name }}. Use this page if you need to update your contact information or view your orders. </h6>
+
+		<div class="center">
+			<form method="post" action="{% url 'cafe:update-profile' %}" onsubmit="alert('Profile has been updated');">
+				{% csrf_token %}
+			<h3> Phone Number: </h3>
+			<input type="text" name="phonenumber" class="box" value="{{ user.cafeprofile.phone_number }}">
+			<h3> Email Address </h3>
+			<input type="text" name="email" class="box" value="{{ user.email }}">
+
+			<button type="submit" class="submit">Update Profile</button>
+			</form>
+		</div>
+
+		<h4> Recent Order </h4>
+
+		<h5> Time Placed: </h5> {{ user.cafeprofile.recent_order.time_placed }}
+		<h5> Pickup Time: </h5> {{ user.cafeprofile.recent_order.pickup_time }}
+		<h5> Ready? </h5> {% if user.cafeprofile.recent_order.is_ready %}Yes{% else %}No{% endif %}
+		<h5> Order Details: </h5> {{ user.cafeprofile.recent_order }}
+
+
+
+
+		{% else %}
+		You cannot view your profile because you are not <a href="{% url 'cafe:login' %}">logged in</a>.
+		{% endif %}
+	</div>
+</div>
+
+
+{% endblock %}

@@ -1,0 +1,36 @@
+/*
+	about.css
+	04/18/2017
+
+	McFatter 2017 Programming Team
+*/
+
+#content{
+	width: 100%;
+}
+
+.post{
+	background-color: white;
+	border-radius: 5px;
+	-moz-border-radius: 5px;
+	-webkit-border-radius: 5px;
+	padding: 3% 5%;
+	margin-top: 3%;
+}
+
+.bot{
+	background-color: white;
+	border-radius: 5px;
+	-moz-border-radius: 5px;
+	-webkit-border-radius: 5px;
+	padding: 3% 5%;
+	margin-top: 2%;
+}
+
+#team{
+	height: 300px;
+	width: auto;
+	margin: auto;
+	display: block;
+	padding-bottom: 20px;
+}

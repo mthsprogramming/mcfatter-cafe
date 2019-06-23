@@ -1,0 +1,73 @@
+@font-face{
+    font-family: "Lobster";
+    src: url('fonts/Lobster.otf') format('opentype');
+}
+
+.newspost{
+	background-color: white;
+	border-radius: 5px;
+	-moz-border-radius: 5px;
+	-webkit-border-radius: 5px;
+	padding: 3% 5%;
+	margin-top: 4%;
+	margin-left: 1%;
+}
+
+
+.topbar{
+	width: 19%;
+	float: left;
+	background-color: white;
+	border-radius: 5px;
+	-moz-border-radius: 5px;
+	-webkit-border-radius: 5px;
+	margin-left: 3%;
+	padding: 2% 3%;
+	margin-bottom: 2%;
+	margin-top: 2.8%;
+	margin-right: 2%;
+}
+
+.midbar{
+	width: 19%;
+	float: left;
+	background-color: white;
+	border-radius: 5px;
+	-moz-border-radius: 5px;
+	-webkit-border-radius: 5px;
+	margin-left: 3%;
+	padding: 2% 3%;
+	margin-bottom: 2%;
+}
+
+.botbar{
+	width: 19%;
+	float: left;
+	background-color: white;
+	border-radius: 5px;
+	-moz-border-radius: 5px;
+	-webkit-border-radius: 5px;
+	margin-left: 3%;
+	padding: 2% 3%;
+	margin-bottom: 2%;
+
+}
+
+.special{
+	font-family: 'Lobster', sans-serif;
+	font-size: 24px;
+	color: rgba(20,142,145,100);
+}
+
+#smlogo{
+	height: 30px;
+	width: auto;
+	float: left;
+	padding-right: 20px;
+}
+
+#iglogo{
+	float: left;
+	height: 32px;
+	width: auto;
+}

@@ -1,0 +1,65 @@
+/*
+    contact.css
+    Styling used on the contact.html page
+
+    MTHS Programming Team 2017
+
+*/
+
+#contact{
+	margin-top: 50px;
+    height: auto;
+    width: 720px;
+    margin-left: auto;
+	margin-right: auto;
+    text-align: center;
+    padding-top: 30px;
+}
+
+#contact ul li{
+    list-style-type: none;
+    padding: 20px;
+    font-size: 30px;
+    font-family: font;
+}
+
+#contact ul li input{
+    font-size: 18px;
+    width: 600px;
+    font-family: font;
+}
+
+#area{
+    margin-top: 50px;
+    background-color: white;
+    border-radius: 5px;
+    -moz-border-radius: 5px;
+    -webkit-border-radius: 5px;
+}
+
+h2{
+    margin-bottom: 50px;
+}
+
+h3{
+    padding-top: 30px;
+    padding-bottom: 30px;
+}
+
+#comments{
+    padding-bottom: 140px;
+}
+
+.submit{
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 20px;
+    margin-bottom: 15px;
+    background-color: white;
+    border-style: solid;
+    padding: 10px 25px;
+    text-align: center;
+    text-decoration: none;
+    font-size: 14px;
+}
