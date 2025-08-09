@@ -3,6 +3,7 @@ __pycache__/
 .env
 venv/
 .idea/
+staticfiles
 
 # SQLite database files
 
