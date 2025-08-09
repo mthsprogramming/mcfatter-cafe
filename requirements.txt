@@ -1,6 +1,7 @@
-Django==3.1.14
-python-decouple==3.3
-Pillow==9.0.1
-psycopg2==2.8.6
-bcrypt==3.2.0
-django-tinymce==3.4.0
+Django==5.2.5
+python-decouple==3.8
+Pillow==11.3.0
+psycopg2==2.9.10
+bcrypt==4.3.0
+django-tinymce==4.1.0
+gunicorn==23.0.0
