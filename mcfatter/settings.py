@@ -30,6 +30,8 @@ DEMO = config('DEMO', default=False, cast=bool)
 
 ALLOWED_HOSTS = config('ALLOWED_HOSTS', cast=Csv())
 
+SECURE_PROXY_SSL_HEADER = ('HTTP_X_FORWARDED_PROTO', 'https')  
+
 # Application definition
 
 INSTALLED_APPS = [
