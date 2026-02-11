@@ -1,6 +1,6 @@
 Django==5.2.11
 python-decouple==3.8
-Pillow==11.3.0
+Pillow==12.1.1
 psycopg2==2.9.10
 bcrypt==5.0.0
 django-tinymce==4.1.0
